@@ -1,0 +1,28 @@
+@model Domain.Wrapper.Response<List<Domain.Dtos.GetDepartmentDto>> 
+<a class="btn btn-primary" href="/department/add" role="button">Create</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(var department in Model.Data)
+    {
+        <tr>
+            <th scope="row">@department.Id</th>
+            <td>@department.Name</td>
+            <td>@department.Description</td>
+            <td>
+                <a href="/department/update/@department.Id">Edit</a> |
+                <a href="/department/delete/@department.Id">Delete</a> 
+            </td>
+        </tr>
+    }
+   
+
+    </tbody>
+</table>

@@ -1,0 +1,34 @@
+@model Domain.Wrapper.Response<List<Employee>> 
+<a class="btn btn-primary" href="/employee/add" role="button">Create</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">DepartmentName</th>
+        <th scope="col">Image</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(var employee in Model.Data)
+    {
+        <tr>
+            <th scope="row">@employee.Id</th>
+            <td>@employee.Name</td>
+            <td>@employee.Department.Name</td>
+            <td>@employee.Image</td>
+            <td>@employee.Email</td>
+            <td>@employee.Phone</td>
+            <td>
+                <a href="/employee/update/@employee.Id">Edit</a> |
+                <a href="/employee/delete/@employee.Id">Delete</a> 
+            </td>
+        </tr>
+    }
+   
+
+    </tbody>
+</table>
